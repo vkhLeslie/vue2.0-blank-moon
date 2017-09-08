@@ -11,7 +11,7 @@ npm run dev
 npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
-```
+
 # 文件结构
 ├── build
 │   ├── build-test.js              ────── 
@@ -52,4 +52,4 @@ npm run build --report
 ├── .eslintrc.js      ────── 配置了代码检查配置
 ├── .postcssrc.js      ────── 
 └── index.html   ────── 
- 
+ ```  
