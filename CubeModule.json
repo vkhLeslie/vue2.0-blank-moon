@@ -1,0 +1,18 @@
+{
+    "dependencies":{},
+    "hidden":false,
+    "autoDownload":true,
+    "relatesTo":[],
+    "dependsOn":[],
+    "dependsTo":[],
+    "releaseNote":"MSD",
+    "build": 1,
+    "name": "blank-template",
+    "identifier":"blank.template",
+    "action":"",
+    "index":"index.html",
+    "isPcTest":0,
+    "isDebug":1,
+    "version":"1.0.1",
+    "testVersion":"1.0.1"
+}
