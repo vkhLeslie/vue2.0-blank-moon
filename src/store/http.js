@@ -1,5 +1,5 @@
 /**
- * @description:http响应拦截器 全局处理loading加载效果
+ * @description:统一请求方法 post get jsonp post_formData
  * @author：xingwu.chen@partner.midea.com  jiajun.he@partner.midea.com
  * @update:2017-08-16
  * @version
@@ -9,13 +9,14 @@ import axios from 'axios';
 import CONFIG from '../data/config.js'
 import URL from '../data/api.js'
 import Promise from 'promise';
+import jsonp from 'jsonp';
 
-let tokenName = URL[CONFIG.serviceType].token;//token的key名称 测试 正式
-console.warn("应用在"+CONFIG.serviceType+"模式下开发");
-console.info("应用在"+CONFIG.serviceType+"模式下开发");
-console.profile("应用在"+CONFIG.serviceType+"模式下开发");
-console.error("应用在"+CONFIG.serviceType+"模式下开发");
-console.dir("应用在"+CONFIG.serviceType+"模式下开发");
+let tokenName = URL[CONFIG.serviceType].tokenName;//token的key名称 测试 正式
+console.warn("应用在" + CONFIG.serviceType + "模式下开发");
+console.info("应用在" + CONFIG.serviceType + "模式下开发");
+console.profile("应用在" + CONFIG.serviceType + "模式下开发");
+console.error("应用在" + CONFIG.serviceType + "模式下开发");
+console.dir("应用在" + CONFIG.serviceType + "模式下开发");
 /**
  * 返回请求路径
  * @author ex_chennxw
@@ -26,23 +27,25 @@ function getRequestUrl(params) {
   let self = this;
   let urlStr = "";//String
   if (params.userId && params.token) {
+    //   urlStr = $common.formatUrl(params.url, {
+    //     tokenName: params.token
+    //       ui:params.userId
+    //  });
     //未登录则没有accessServerUrl
-    urlStr = URL[CONFIG.serviceType].baseUrl + urlTailStr + "?userId=" + userId + "&" + URL[CONFIG.serviceType].token + "=" + params.token;
+    urlStr = URL[CONFIG.serviceType].baseUrl + urlTailStr + "?userId=" + userId + "&" + URL[CONFIG.serviceType].tokenName + "=" + params.token;
   } else {
     urlStr = URL[CONFIG.serviceType].baseUrl + params;
-    console.log(urlStr);
-    console.log("urlStr****************************");
   }
   return urlStr;
 }
 /******************************* TODO ********************************************* */
 //'https://newimtest.midea.com/mas-api/restful/acWorkingHoursFill/pjts/searchByUser?token=T2344189819503616'
-function request(url,params, option) {
-   params = params || {};
-   option = option || {};
+
+function request(url, params, option) {
+  params = params || {};
+  option = option || {};
   console.log(params);//测试
   console.log(option);//测试
-  console.log("*****************************");//测试
   let config = {};
   option.method = $common.uppercase(option.method);//请求方式全部转换为大写 "POST" "GET" "JSONP"
   let logError = function (msg, status, headers, config_) {
@@ -74,8 +77,12 @@ function request(url,params, option) {
     }
     return dst;
   };
+  /**
+* @description:post
+* @param {*} params
+* @param {*} 
+*/
   let post = function (config) {
-   
     return new Promise(function (resolve, reject) {
       extend(config, {
         method: 'post'
@@ -87,6 +94,11 @@ function request(url,params, option) {
       });
     });
   };
+  /**
+* @description:get
+* @param {*} params
+* @param {*} 
+*/
   let get = function (config) {
     return new Promise(function (resolve, reject) {
       extend(config, {
@@ -99,28 +111,43 @@ function request(url,params, option) {
       });
     });
   };
-  let jsonp = function (config) {
-    return new Promise(function (resolve, reject) {
-      let p = config.params;
-      if (config.hasOwnProperty('customCallback')) {
-        p[config.customCallback] = 'JSON_CALLBACK';
-        delete config.customCallback;
+  /**
+* @description:jsonp
+* @param {*} params
+* @param {*} 
+*/
+let getJsonpData = function (url, data, option) {
+  url += (url.indexOf('?') < 0 ? '?' : '&') + $common.paramJsonp(data)
+  return new Promise((resolve, reject) => {
+   jsonp(url, option, (err, data) => {
+      if (!err) {
+        resolve(data)
       } else {
-        p['jsonpcallback'] = 'JSON_CALLBACK';
+        reject(err)
       }
-      extend(config, {
-        method: 'JSONP'
-      });
-      axios(config).then(rep => {
-        resolve(rep);
-      }, error => {
-        reject(error);
-      });
-    });
-  }
+    })
+  })
+}
+  // let jsonp= function (url, data, callback) {
+  //   if (typeof data == 'string') {
+  //     callback = data
+  //     data = {}
+  //   }
+  //   var hasParams = url.indexOf('?')
+  //   url += hasParams ? '&' : '?' + 'callback=' + callback
+  //   var params
+  //   for (var i in data) {
+  //     params += '&' + i + '=' + data[i]
+  //   }
+  //   url += params
+  //   var script = document.createElement('script')
+  //   script.setAttribute('src', url)
+  //   document.querySelector('head').appendChild(script)
+  // };
   config = extend({
     method: 'JSONP'
   }, option);
+
   switch (option.method) {
     case 'POST_FORMDATA':
       let fd = new FormData();
@@ -156,7 +183,7 @@ function request(url,params, option) {
       });
     case 'GET':
       reqData = {
-        url:  url,
+        url: url,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -164,25 +191,23 @@ function request(url,params, option) {
       };
       config = extend(config, reqData);
       return get(config).then(res => {
-        return res.data;
+      return res.data;
       });
     case 'JSONP':
-      extend(config, {
-        customCallback: 'callback',
-      });
-      return jsonp(config).then(res => {
-        return res.data;
+      return  getJsonpData(url, params, null).then(res=>{
+        return res;
       });
     default:
-    break;
+      console.error("请求方式有误，请检查您的请求方式")
+      break;
   }
 }
-function resolve (rep, clback) {
-	var data = rep.data;
-	if (rep.status == 200) {
-		clback && clback(data);
-	}
-	return data;
+function resolve(rep, clback) {
+  var data = rep.data;
+  if (rep.status == 200) {
+    clback && clback(data);
+  }
+  return data;
 }
 module.exports = {
   getRequestUrl,//拼接url
