@@ -39,7 +39,6 @@ function getRequestUrl(params) {
   return urlStr;
 }
 /******************************* TODO ********************************************* */
-//'https://newimtest.midea.com/mas-api/restful/acWorkingHoursFill/pjts/searchByUser?token=T2344189819503616'
 
 function request(url, params, option) {
   params = params || {};
