@@ -212,6 +212,19 @@ var Rxports = {
             return str;
         },
         /**
+         * @description:jsonp url拼接参数
+         * @param 
+         * @returns {*}
+         */
+        paramJsonp(data) {
+            let url = ''
+            for (var k in data) {
+                let value = data[k] !== undefined ? data[k] : ''
+                url += '&' + k + '=' + encodeURIComponent(value)
+            }
+            return url ? url.substring(1) : ''
+        },
+        /**
        * @description:json数据转formData
        * @param params
        * @returns {*}

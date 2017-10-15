@@ -16,9 +16,9 @@ export default new Vuex.Store({
   state: {
     token: true,
     ssoToken: '',
-    /*tenantId: '', // 租户ID
-    mipId : '',
-    deviceId  : '', // 设备id  手机的唯一标示*/
+    /*tenantId: '81920358843678720', // 租户ID
+    mipId : 'vqrWLABZgUQpmrcNwRdsu7960NsCs9hL8K4PX%2BVJiZH%2BBGckVwXdSA%3D%3D',
+    deviceId  : '825d90e02e31ec2073bd8b6bb3058520', // 设备id  手机的唯一标示*/
     mipId : '',
     deviceId  : '', // 设备id  手机的唯一标示
     deviceInfo: {},

@@ -14,3 +14,9 @@ Vue.directive('focus', {
       el.focus()
     }
   })
+  Vue.directive('hello', {
+    // 当绑定元素插入到 DOM 中。
+    inserted: function (el) {
+     console.log("我是hello指令");
+    }
+  })

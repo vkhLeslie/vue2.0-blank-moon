@@ -2,7 +2,7 @@
 	@import "~assets/css/index.less";
 </style>
 <template>
-	<div>Hello World.
+	<div v-hello>Hello World.{{"JAN" | dictFilter("languageType")}}
 	</div>
 </template>
 <script>

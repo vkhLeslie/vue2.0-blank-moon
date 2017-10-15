@@ -11,20 +11,22 @@ import FastClick from 'fastclick'//解决300ms点击延迟
 import VueI18n from 'vue-i18n' //国际化语言
 import * as filters from './js/filters' // 全局filter
 import './js/directive' // 全局指令
-
 import language_EN from './data/language_EN.js' //国际化语言 （英文）
 import language_CN from './data/language_CN.js' //国际化语言 （中文）
 import language_TW from './data/language_TW.js' //国际化语言 （繁体）
-// import ToastPlugin  from 'vux' //提示语组件
+//提示组件，消息框
+import 'vue2-toast/lib/toast.css';//参考使用 https://github.com/vkhLeslie/vue-toast
+import Toast from 'vue2-toast';
 
 
-let loading = require('./js/loading')();
-let infiniteScroll =  require('vue-infinite-scroll');
-const VueAwesomeSwiper = require('vue-awesome-swiper');
-Vue.use(VueAwesomeSwiper);
-Vue.use(infiniteScroll);
 Vue.use(VueRouter);
 Vue.use(VueI18n);//国际化语言
+Vue.use(Toast, {//提示组件，消息框
+  defaultType: 'center',//Toast 的位置. | String | 默认: 'bottom' | 可选值 'top, center,bottom'
+  duration: 3000,//timeout时间 
+  wordWrap: true, //是否自动换行. | Boolean | 默认: false
+  width: '150px'//提示框大小 Toast 的宽度. | String | 默认: 'auto'
+});
 
 const messages = {
   en: {

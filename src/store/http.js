@@ -39,12 +39,11 @@ function getRequestUrl(params) {
   return urlStr;
 }
 /******************************* TODO ********************************************* */
+//'https://newimtest.midea.com/mas-api/restful/acWorkingHoursFill/pjts/searchByUser?token=T2344189819503616'
 
 function request(url, params, option) {
   params = params || {};
   option = option || {};
-  console.log(params);//测试
-  console.log(option);//测试
   let config = {};
   option.method = $common.uppercase(option.method);//请求方式全部转换为大写 "POST" "GET" "JSONP"
   let logError = function (msg, status, headers, config_) {
@@ -201,15 +200,8 @@ let getJsonpData = function (url, data, option) {
       break;
   }
 }
-function resolve(rep, clback) {
-  var data = rep.data;
-  if (rep.status == 200) {
-    clback && clback(data);
-  }
-  return data;
-}
+
 module.exports = {
   getRequestUrl,//拼接url
-  resolve,//处理返回
   request,//请求
 };

@@ -8,14 +8,12 @@ import axios from 'axios'
 import Vue from 'vue'
 import Promise from 'promise';
 import store from './'
-let loading = require('../js/loading')();
 // 超时时间
 axios.defaults.timeout = 5000;
 // http请求拦截器
 var loadinginstace
 axios.interceptors.request.use(config => {//请求前的处理
     //  Loading方法
-    loading.show();//显示加载效果
     console.log('请求前...', config);
     //全局配置 让每个请求携带token--key 请根据实际项目、实际情况自行修改
     if (store.getters.token) {
@@ -29,7 +27,6 @@ axios.interceptors.request.use(config => {//请求前的处理
     //   }
     return config;
 }, error => {
-    loading.fail('加载超时');
     return Promise.reject(error)
 })
 // http响应拦截器
@@ -61,11 +58,9 @@ axios.interceptors.response.use(data => {//请求后的处理
     //     } else {
     //       return response.data;
     //     }
-    loading.success();// 响应成功关闭loading
     console.log("请求成功后...", data);
     return data;
 }, error => {
-    loading.fail('加载失败');
     return Promise.reject(error)
 })
 
