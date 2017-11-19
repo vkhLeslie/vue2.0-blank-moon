@@ -1,130 +1,130 @@
 /**
  * @description:统一请求方法 post get jsonp post_formData
- * @author：xingwu.chen@partner.midea.com  jiajun.he@partner.midea.com
+ * @author：912751280@qq.com
  * @update:2017-08-16
  * @version
  */
 
-import axios from 'axios';
-import CONFIG from '../data/config.js';
-import URL from '../data/URL.js';
-import Promise from 'promise';
-import jsonp from 'jsonp';
+import axios from 'axios'
+import CONFIG from '../data/config.js'
+import URL from '../data/URL.js'
+import Promise from 'promise'
+import jsonp from 'jsonp'
 
-console.warn("应用在" + CONFIG.serviceType + "模式下开发");
-console.info("应用在" + CONFIG.serviceType + "模式下开发");
-console.profile("应用在" + CONFIG.serviceType + "模式下开发");
-console.error("应用在" + CONFIG.serviceType + "模式下开发");
-console.dir("应用在" + CONFIG.serviceType + "模式下开发");
+console.warn('应用在' + CONFIG.serviceType + '模式下开发')
+console.info('应用在' + CONFIG.serviceType + '模式下开发')
+console.profile('应用在' + CONFIG.serviceType + '模式下开发')
+console.error('应用在' + CONFIG.serviceType + '模式下开发')
+console.dir('应用在' + CONFIG.serviceType + '模式下开发')
 /**
  * 返回请求路径
  * @author ex_chennxw
- * @param urlTailStr 
+ * @param urlTailStr
  */
-/******************************* TODO ********************************************* */
-function getRequestUrl(params) {
-  let self = this;
-  let urlStr = "";//String
+/** ***************************** TODO ********************************************* */
+function getRequestUrl (params) {
+  let self = this
+  let urlStr = ''// String
   if (params.userId && params.token) {
     //   urlStr = $common.formatUrl(params.url, {
     //     tokenName: params.token
     //       ui:params.userId
     //  });
-    //未登录则没有accessServerUrl
-    urlStr = URL[CONFIG.serviceType].baseUrl + urlTailStr + "?userId=" + userId + "&" + URL[CONFIG.serviceType].tokenName + "=" + params.token;
+    // 未登录则没有accessServerUrl
+    urlStr = URL[CONFIG.serviceType].baseUrl + urlTailStr + '?userId=' + userId + '&' + URL[CONFIG.serviceType].tokenName + '=' + params.token
   } else {
-    urlStr = URL[CONFIG.serviceType].baseUrl + params;
+    urlStr = URL[CONFIG.serviceType].baseUrl + params
   }
-  return urlStr;
+  return urlStr
 }
-/******************************* TODO ********************************************* */
-//'https://newimtest.midea.com/mas-api/restful/acWorkingHoursFill/pjts/searchByUser?token=T2344189819503616'
+/** ***************************** TODO ********************************************* */
+// 'https://newimtest.midea.com/mas-api/restful/acWorkingHoursFill/pjts/searchByUser?token=T2344189819503616'
 
-function request(url, params, option) {
-  params = params || {};
-  option = option || {};
-  let config = {};
-  option.method = $common.uppercase(option.method);//请求方式全部转换为大写 "POST" "GET" "JSONP"
+function request (url, params, option) {
+  params = params || {}
+  option = option || {}
+  let config = {}
+  option.method = $common.uppercase(option.method)// 请求方式全部转换为大写 "POST" "GET" "JSONP"
   let logError = function (msg, status, headers, config_) {
     try {
-      var err = {};
-      err.key = key;
-      err.params = params;
-      err.msg = msg;
-      err.status = status;
-      err.headers = headers;
-      err.config = config_;
-      console.log("_error", err);
-      return err;
+      var err = {}
+      err.key = key
+      err.params = params
+      err.msg = msg
+      err.status = status
+      err.headers = headers
+      err.config = config_
+      console.log('_error', err)
+      return err
     } catch (e) {
-      console.log("_error", e);
+      console.log('_error', e)
       return e
     }
-  };
+  }
   let extend = function (dst) {
     for (let i = 1, ii = arguments.length; i < ii; i++) {
-      let obj = arguments[i];
+      let obj = arguments[i]
       if (obj) {
-        let keys = Object.keys(obj);
+        let keys = Object.keys(obj)
         for (let j = 0, jj = keys.length; j < jj; j++) {
-          let key = keys[j];
-          dst[key] = obj[key];
+          let key = keys[j]
+          dst[key] = obj[key]
         }
       }
     }
-    return dst;
-  };
+    return dst
+  }
   /**
 * @description:post
 * @param {*} params
-* @param {*} 
+* @param {*}
 */
   let post = function (config) {
     return new Promise(function (resolve, reject) {
       extend(config, {
         method: 'post'
-      });
+      })
       axios(config).then(rep => {
-        resolve(rep);
+        resolve(rep)
       }, error => {
-        reject(error);
-      });
-    });
-  };
+        reject(error)
+      })
+    })
+  }
   /**
 * @description:get
 * @param {*} params
-* @param {*} 
+* @param {*}
 */
   let get = function (config) {
     return new Promise(function (resolve, reject) {
       extend(config, {
         method: 'GET'
-      });
+      })
       axios(config).then(rep => {
-        resolve(rep);
+        resolve(rep)
       }, error => {
-        reject(error);
-      });
-    });
-  };
+        reject(error)
+      })
+    })
+  }
   /**
 * @description:jsonp
 * @param {*} params
-* @param {*} 
+* @param {*}
 */
-let getJsonpData = function (url, data, option) {
-  url += (url.indexOf('?') < 0 ? '?' : '&') + $common.paramJsonp(data)
-  return new Promise((resolve, reject) => {
-   jsonp(url, option, (err, data) => {
-      if (!err) {
-        resolve(data)
-      } else {
-        reject(err)
-      }
+  let getJsonpData = function (url, data, option) {
+    url += (url.indexOf('?') < 0 ? '?' : '&') + $common.paramJsonp(data)
+    return new Promise((resolve, reject) => {
+      jsonp(url, option, (err, data) => {
+        if (!err) {
+          resolve(data)
+        } else {
+          reject(err)
+        }
+      })
     })
-  })
-}
+  }
   // let jsonp= function (url, data, callback) {
   //   if (typeof data == 'string') {
   //     callback = data
@@ -143,13 +143,13 @@ let getJsonpData = function (url, data, option) {
   // };
   config = extend({
     method: 'JSONP'
-  }, option);
+  }, option)
 
   switch (option.method) {
     case 'POST_FORMDATA':
-      let fd = new FormData();
+      let fd = new FormData()
       for (let i in params) {
-        fd.append(i, params[i]);
+        fd.append(i, params[i])
       }
       reqData = {
         url: url,
@@ -157,15 +157,15 @@ let getJsonpData = function (url, data, option) {
           'Content-Type': undefined
         },
         data: fd
-      };
-      config = extend(config, reqData);
+      }
+      config = extend(config, reqData)
       return post(config).then(res => {
-        return res.data;
-      });
+        return res.data
+      })
     case 'POST_JSON':
     case 'POST':
       if (option.method === 'POST_JSON') {
-        params = JSON.stringify(params);
+        params = JSON.stringify(params)
       }
       let reqData = {
         url: url,
@@ -173,34 +173,34 @@ let getJsonpData = function (url, data, option) {
           'Content-Type': 'application/json;charset=UTF-8'
         },
         data: params
-      };
-      config = extend(config, reqData);
+      }
+      config = extend(config, reqData)
       return post(config).then(res => {
-        return res.data;
-      });
+        return res.data
+      })
     case 'GET':
       reqData = {
         url: url,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         params: params
-      };
-      config = extend(config, reqData);
+      }
+      config = extend(config, reqData)
       return get(config).then(res => {
-      return res.data;
-      });
+        return res.data
+      })
     case 'JSONP':
-      return  getJsonpData(url, params, null).then(res=>{
-        return res;
-      });
+      return getJsonpData(url, params, null).then(res => {
+        return res
+      })
     default:
-      console.error("请求方式有误，请检查您的请求方式")
-      break;
+      console.error('请求方式有误，请检查您的请求方式')
+      break
   }
 }
 
 module.exports = {
-  getRequestUrl,//拼接url
-  request,//请求
-};
+  getRequestUrl, // 拼接url
+  request// 请求
+}

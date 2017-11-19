@@ -11,6 +11,9 @@ npm run dev
 npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
+# js代码检查
+npm install -g eslint
+npm run eslint
 
 # 文件结构
 ├── build

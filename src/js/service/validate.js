@@ -1,6 +1,6 @@
 /**
  * @description:验证
- * @author：xingwu.chen@partner.midea.com
+ * @author：912751280@qq.com
  * @update:2017-08-08
  * @version
  */

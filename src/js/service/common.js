@@ -1,6 +1,6 @@
 /**
  * common Function
- * author: jiajun.he@partner.midea.com
+ * author: jiajun.he@qq.com
  * createTime: 2017.02.13
  */
 /**

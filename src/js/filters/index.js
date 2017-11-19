@@ -1,6 +1,6 @@
 /**
  * @description:全局过滤器 
- * @author：xingwu.chen@partner.midea.com
+ * @author：912751280@qq.com
  * @update:2017-08-16
  * @version
  */

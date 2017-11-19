@@ -1,7 +1,7 @@
 
 /**
  * @description:常用时间工具类  分析参数类型，容错判断
- * @author：xingwu.chen@partner.midea.com
+ * @author：912751280@qq.com
  * @update:2017-08-08
  * @version
  */

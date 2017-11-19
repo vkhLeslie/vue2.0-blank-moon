@@ -9,21 +9,21 @@
 
 <script>
   /* global $common */
-  import { mapState, mapGetters } from 'vuex';
-  import  platform from './platform'
-   import  jsonp from 'jsonp'
+  import { mapState, mapGetters } from 'vuex'
+import platform from './platform'
+  import jsonp from 'jsonp'
   export default {
     components: {},
     computed: mapState({
-        uid: state => state.user.uid,
-        token: state => state.user.token
+      uid: state => state.user.uid,
+      token: state => state.user.token
     }),
-    mounted() {
+    mounted () {
       let reqData = {
-         uid:"ex_chenxw",
-         password:"1111111"
+        uid: 'ex_chenxw',
+        password: '1111111'
       }
-      //jsonp实例
+      // jsonp实例
       // jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=dsg', null, function (err, data) {
       //   if (err) {
       //     console.error(err.message);
@@ -39,17 +39,17 @@
       //               }
       //     });
       document.addEventListener('deviceready', function () {
-        platform.changeColor([255, 255, 255, 1]);
+        platform.changeColor([255, 255, 255, 1])
         platform.getUser().then(function (data) {
-              //获取用户信息
+              // 获取用户信息
               // this.$store.commit('SET_UID',data.uid);
               // this.$store.commit('SET_SSO_TOKEN',data.ssoToken);
               // $common.setStore('SET_UID',response.data.uid);
               // $common.setStore('SET_SSO_TOKEN',response.data.token);
-          },function (data) {
-          });
-      }, false);
-    },
+        }, function (data) {
+        })
+      }, false)
+  },
     methods: {
     }
   }

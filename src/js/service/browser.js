@@ -1,6 +1,6 @@
 /**
  * @description:判断访问终端类型
- * @author：xingwu.chen@partner.midea.com
+ * @author：912751280@qq.com
  * @update:2017-08-16
  * @version
  */
