@@ -19,7 +19,7 @@ npm install -g eslint
 npm run eslint
 
 ```
-每次提交代码版本时，检查代码(了解，已添加)
+每次提交代码版本时，检查代码(了解，已添加,本人偷懒忽略了代码检查src整个文件)
 
 npm install pre-commit --save-dev
 package.json 添加 "pre-commit": [  "eslint"],
