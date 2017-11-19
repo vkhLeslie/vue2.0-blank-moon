@@ -29,9 +29,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       { from: path.join(__dirname, '../CubeModule.json'), to: path.join(__dirname, '../dist/CubeModule.json') },
     ]),
-      new webpack.ProvidePlugin({
+      new webpack.ProvidePlugin({//注册全局服务
       '$envType': path.resolve(__dirname, '../config/test.env.js'),
       '$common': path.resolve(__dirname, '../src/js/service/common.js'),
+      '$configGlobal': path.resolve(__dirname, '../config/configGlobal.js'),//configGlobal
     }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({

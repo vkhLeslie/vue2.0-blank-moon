@@ -19,9 +19,10 @@ module.exports = merge(baseWebpackConfig, {
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
   plugins: [
-    new webpack.ProvidePlugin({
+    new webpack.ProvidePlugin({//注册全局服务
       '$envType': path.resolve(__dirname, '../config/dev.env.js'),
       '$common': path.resolve(__dirname, '../src/js/service/common.js'),
+      '$configGlobal': path.resolve(__dirname, '../config/configGlobal.js'),//configGlobal
     }),
     new webpack.DefinePlugin({
       'process.env': config.dev.env

@@ -6,12 +6,11 @@
  */
 
 import axios from 'axios';
-import CONFIG from '../data/config.js'
-import URL from '../data/api.js'
+import CONFIG from '../data/config.js';
+import URL from '../data/URL.js';
 import Promise from 'promise';
 import jsonp from 'jsonp';
 
-let tokenName = URL[CONFIG.serviceType].tokenName;//token的key名称 测试 正式
 console.warn("应用在" + CONFIG.serviceType + "模式下开发");
 console.info("应用在" + CONFIG.serviceType + "模式下开发");
 console.profile("应用在" + CONFIG.serviceType + "模式下开发");

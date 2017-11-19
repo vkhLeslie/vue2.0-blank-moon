@@ -1,6 +1,6 @@
 
-# Vue2.0-Blank-Template
-> A vue.js project
+# Vue2.0-Template-MOON
+> Vue2.0-Template-MOON
 ## Build Setup
 ``` bash
 # install dependencies
@@ -45,7 +45,7 @@ npm run build --report
 │   │   ├── config     ──────  全局配置文件
 │   │   ├──  language    ──────  语言翻译
 │   │   │  
-├── |—— platform ———————— 底座方法
+├── |—— platform ———————— cordova方法
 ├── |—— router ———————— 路由配置
 ├── |—— store ———————— 状态管理
 │   ├── App.vue      ────── 应用入口

@@ -6,7 +6,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './router/router.conf.js'
 import store from './store'
-import httpInterceptor from './store/httpInterceptor.js'//http拦截器
+import httpInterceptor from './http/httpInterceptor.js'//http拦截器
 import FastClick from 'fastclick'//解决300ms点击延迟
 import VueI18n from 'vue-i18n' //国际化语言
 import * as filters from './js/filters' // 全局filter

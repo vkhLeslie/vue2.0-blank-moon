@@ -7,7 +7,7 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Promise from 'promise';
-import store from './'
+import store from '../store'
 // 超时时间
 axios.defaults.timeout = 5000;
 // http请求拦截器

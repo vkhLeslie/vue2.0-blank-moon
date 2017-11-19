@@ -1,5 +1,5 @@
 import { api } from './api';
-import { request,getRequestUrl} from '../http';
+import { request,getRequestUrl} from '../../http/http.js';
 import axios from 'axios';
 
 //Action 通常是异步的
