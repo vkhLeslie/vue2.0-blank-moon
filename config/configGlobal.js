@@ -14,6 +14,6 @@ const CONFIG = {
     // 默认使用的语言
     DEFAULT_LANGUAGE: 'zh',
     MODULES_PATH: '',
-    PROJECT_NAME: 'angular.ionic'// 应用模块标识
+    PROJECT_NAME: 'vue moon app'// 应用模块标识
 }
 export default CONFIG
