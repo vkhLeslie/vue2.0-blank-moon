@@ -12,10 +12,10 @@
 8 verbose lifecycle vue2.0-Blank@1.0.0~eslint: unsafe-perm in lifecycle true
 9 verbose lifecycle vue2.0-Blank@1.0.0~eslint: PATH: D:\software\nodeNvm\nvm\v6.11.1\node_modules\npm\bin\node-gyp-bin;E:\angularReactVue\vue2.0-blank-moon\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\software;D:\software\nodeNvm\nvm;D:\software\nodeNvm\nodejs;D:\software\node\;E:\mideaTool\tools;D:\software\git\Git\cmd;D:\software\javaUtils\jdk1.8.0_151\bin;D:\software\javaUtils\jdk1.8.0_151\jre\bin;D:\software\javaUtils\maven\apache-maven-3.5.0\bin;D:\software\andorStudio\android-sdk-windows\platform-tools;D:\software\andorStudio\android-sdk-windows\tools;D:\software\nodeNvm\nvm;D:\software\nodeNvm\nodejs;C:\Users\issuser\AppData\Roaming\npm;D:\software\visualCode\Microsoft VS Code\bin;D:\software\git\Git\cmd;D:\software\javaUtils\jdk1.8.0_151\bin;D:\software\javaUtils\jdk1.8.0_151\jre\bin
 10 verbose lifecycle vue2.0-Blank@1.0.0~eslint: CWD: E:\angularReactVue\vue2.0-blank-moon
-11 silly lifecycle vue2.0-Blank@1.0.0~eslint: Args: [ '/d /s /c', 'eslint --fix  ./src/http/* ' ]
+11 silly lifecycle vue2.0-Blank@1.0.0~eslint: Args: [ '/d /s /c', 'eslint --fix  ./src/store/user/* ' ]
 12 silly lifecycle vue2.0-Blank@1.0.0~eslint: Returned: code: 1  signal: null
 13 info lifecycle vue2.0-Blank@1.0.0~eslint: Failed to exec eslint script
-14 verbose stack Error: vue2.0-Blank@1.0.0 eslint: `eslint --fix  ./src/http/* `
+14 verbose stack Error: vue2.0-Blank@1.0.0 eslint: `eslint --fix  ./src/store/user/* `
 14 verbose stack Exit status 1
 14 verbose stack     at EventEmitter.<anonymous> (D:\software\nodeNvm\nvm\v6.11.1\node_modules\npm\lib\utils\lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
@@ -32,14 +32,14 @@
 19 error node v6.11.1
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
-22 error vue2.0-Blank@1.0.0 eslint: `eslint --fix  ./src/http/* `
+22 error vue2.0-Blank@1.0.0 eslint: `eslint --fix  ./src/store/user/* `
 22 error Exit status 1
-23 error Failed at the vue2.0-Blank@1.0.0 eslint script 'eslint --fix  ./src/http/* '.
+23 error Failed at the vue2.0-Blank@1.0.0 eslint script 'eslint --fix  ./src/store/user/* '.
 23 error Make sure you have the latest version of node.js and npm installed.
 23 error If you do, this is most likely a problem with the vue2.0-Blank package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
-23 error     eslint --fix  ./src/http/*
+23 error     eslint --fix  ./src/store/user/*
 23 error You can get information on how to open an issue for this project with:
 23 error     npm bugs vue2.0-Blank
 23 error Or if that isn't available, you can get their info via:
