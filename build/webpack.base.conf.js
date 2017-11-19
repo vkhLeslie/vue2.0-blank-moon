@@ -35,6 +35,15 @@ const webpackConfig = {
   },
   module: {
     loaders: [
+      {//eslint 语法检查，不需要可以注悉
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue'

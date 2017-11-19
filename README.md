@@ -1,3 +1,6 @@
+## 技术栈：
+
+vue2.0 + vue-router + axio + less + ES6/7 + webpack + eslint + fastclick + vue-i18n
 
 # Vue2.0-Template-MOON
 > Vue2.0-Template-MOON
@@ -14,6 +17,14 @@ npm run build --report
 # js代码检查
 npm install -g eslint
 npm run eslint
+
+```
+每次提交代码版本时，检查代码(了解，已添加)
+
+npm install pre-commit --save-dev
+package.json 添加 "pre-commit": [  "eslint"],
+
+  ```
 
 # 文件结构
 ├── build
