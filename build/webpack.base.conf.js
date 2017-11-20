@@ -39,9 +39,9 @@ const webpackConfig = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        include: [path.resolve('src'), path.resolve('test')],
         options: {
-          formatter: require('eslint-friendly-formatter')
+        formatter: require('eslint-friendly-formatter')
         }
       },
       {
