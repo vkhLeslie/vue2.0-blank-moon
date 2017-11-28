@@ -76,7 +76,8 @@
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1",
     "yaml-loader": "^0.4.0",
-    "zip-webpack-plugin": "^0.3.0"
+    "zip-webpack-plugin": "^0.3.0",
+    "string-replace-webpack-plugin": "0.0.5"
   },
   "engines": {
     "node": ">= 4.0.0",
