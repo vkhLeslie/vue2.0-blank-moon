@@ -51,20 +51,6 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-// loading效果组件--start
-Vue.prototype.showLoading = function (str) {
-  loading.show(str)
-}
-Vue.prototype.hideLoading = function (str) {
-  loading.complete()
-}
-Vue.prototype.successLoading = function (str) {
-  loading.success(str)
-}
-Vue.prototype.failLoading = function (str) {
-  loading.fail(str)
-}
-// loading效果组件--end
 
 const scrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) {
