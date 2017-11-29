@@ -40,6 +40,7 @@ import platform from './platform'
       //     });
       document.addEventListener('deviceready', function () {
         platform.changeColor([255, 255, 255, 1])
+		platform.setBounces(0);
         platform.getUser().then(function (data) {
               // 获取用户信息
               // this.$store.commit('SET_UID',data.uid);
