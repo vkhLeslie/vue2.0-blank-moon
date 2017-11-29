@@ -554,7 +554,17 @@ var functions = {
      */
     financeUpdateApp: function(params) {
         return functions.callApi('MideaFinancePlugin', 'updateApp', [params]);
-    }
+    },
+	/**
+     * 锁死 bounce
+     * @param 0:锁死，1：不锁死
+     * @returns {*}
+     */
+    setBounces: function(params) {
+        return functions.callApi('MideaCommon', 'setBounces', [params]);
+    },
+
+    //ios 锁死webview，底座固定webview，ios webview不再上下滑动
 };
 
 export default functions
