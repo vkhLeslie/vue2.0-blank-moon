@@ -35,6 +35,7 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      favicon: path.resolve('bitbug_favicon.ico'),
       inject: true
     }),
     new FriendlyErrors()

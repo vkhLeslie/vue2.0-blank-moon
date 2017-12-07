@@ -53,6 +53,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: config.buildTest.index,
       template: 'index.html',
+      favicon: path.resolve('bitbug_favicon.ico'),
       inject: true,
       minify: {
         removeComments: true,
