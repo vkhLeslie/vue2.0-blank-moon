@@ -1,14 +1,9 @@
-/**
- * common Function
- * author: jiajun.he@qq.com
- * createTime: 2017.02.13
- */
+
 /**
  * 常用工具类
  * @export
  * @class 
  */
-import platform from '../../platform'
 var Rxports = {
     methods: {
         /**
@@ -307,15 +302,7 @@ var Rxports = {
                 }
             }
             return true;
-        },
-        /**
-        * @description:全局退出应用
-        * @param 
-        * @returns {*}
-        */
-        exit() {
-            platform.exit();
-        },
+        }
     }
 }
 module.exports = Rxports.methods

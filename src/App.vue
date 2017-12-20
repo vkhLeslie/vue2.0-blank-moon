@@ -10,7 +10,6 @@
 <script>
   /* global $common */
   import { mapState, mapGetters } from 'vuex'
-import platform from './platform'
   import jsonp from 'jsonp'
   export default {
     components: {},
